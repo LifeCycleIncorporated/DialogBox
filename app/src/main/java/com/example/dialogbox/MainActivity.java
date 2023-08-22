@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+
     private Button button;
     private AlertDialog.Builder alertDialog;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Button find or linked xml file
         button = findViewById(R.id.exitVButtonId);
 
         button.setOnClickListener(this);
@@ -40,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Alert Dialog set Message
         alertDialog.setIcon(R.drawable.icon);
 
+        // Alert Dialog set Out click not hide
+        alertDialog.setCancelable(false);
+
         // Alert Dialog set Positive Button
         alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
@@ -56,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "Negative Button is clicked", Toast.LENGTH_SHORT).show();
             }
         });
-        
+
         // Alert Dialog set Neutral Button
         alertDialog.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
@@ -64,8 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "Cancel Button is clicked", Toast.LENGTH_SHORT).show();
             }
         });
-        
-        
+
         alertDialog.show();
     }
 }
